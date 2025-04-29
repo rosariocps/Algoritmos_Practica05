@@ -84,15 +84,15 @@ public class ListaEnlazada<T extends Comparable<T>> {
             return;
         }
 
-        Nodo<T> nodoPrevio = first; // Empezamos desde el primer nodo
+        Nodo<T> nodoAnterior = first; // Empezamos desde el primer nodo
         Nodo<T> nodoCurrent = first.next; // Nodo siguiente al primero
 
         while (nodoCurrent != null) { // Mientras haya nodos
             if (nodoCurrent.data.equals(x)) { // Si encontramos el dato
-                nodoPrevio.next = nodoCurrent.next; // Saltamos el nodo a eliminar
+                nodoAnterior.next = nodoCurrent.next; // Saltamos el nodo a eliminar
                 return;
             }
-            nodoPrevio = nodoCurrent; // Avanzamos el previo
+            nodoAnterior = nodoCurrent; // Avanzamos el previo
             nodoCurrent = nodoCurrent.next; // Avanzamos el actual
         }
     }    

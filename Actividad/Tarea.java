@@ -33,12 +33,6 @@ public class Tarea implements Comparable<Tarea> {
         return prioridad == tarea.prioridad && titulo.equals(tarea.titulo); // Comparamos prioridad y título
     }
 
-    // Calcula el hashCode basado en título y prioridad
-    @Override
-    public int hashCode() {
-        return titulo.hashCode() + Integer.hashCode(prioridad); // Suma de hash de título y prioridad
-    }
-
     // Compara dos tareas por prioridad para ordenar
     @Override
     public int compareTo(Tarea otra) {

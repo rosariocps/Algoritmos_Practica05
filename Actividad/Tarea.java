@@ -2,32 +2,27 @@ public class Tarea implements Comparable<Tarea> {
     private String titulo; // Título o descripción de la tarea
     private int prioridad; // A mayor número, mayor importancia
 
-
     // Constructor
     public Tarea(String titulo, int prioridad) {
         this.titulo = titulo; // Asignamos el título recibido
         this.prioridad = prioridad; // Asignamos la prioridad recibida
     }
 
-
     // Getter para obtener el título
     public String getTitulo() {
         return titulo;
     }
-
 
     // Getter para obtener la prioridad
     public int getPrioridad() {
         return prioridad;
     }
 
-
     // Devuelve una representación en texto de la tarea
     @Override
     public String toString() {
         return "- " + titulo + " (Prioridad: " + prioridad + ")"; // Formato bonito para impresión
     }
-
 
     // Compara si dos tareas son iguales
     @Override
@@ -38,13 +33,11 @@ public class Tarea implements Comparable<Tarea> {
         return prioridad == tarea.prioridad && titulo.equals(tarea.titulo); // Comparamos prioridad y título
     }
 
-
     // Calcula el hashCode basado en título y prioridad
     @Override
     public int hashCode() {
         return titulo.hashCode() + Integer.hashCode(prioridad); // Suma de hash de título y prioridad
     }
-
 
     // Compara dos tareas por prioridad para ordenar
     @Override

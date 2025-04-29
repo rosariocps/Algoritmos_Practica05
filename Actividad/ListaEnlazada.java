@@ -1,6 +1,11 @@
 public class ListaEnlazada<T extends Comparable<T>> {
     private Nodo<T> first; // Primer nodo de la lista
 
+    // Constructor
+    public ListaEnlazada() {
+        this.first = null; // Inicializamos la lista como vacía
+    }
+
     // Getter para obtener el primer nodo
     public Nodo<T> getFirst() {
         return first;
@@ -11,12 +16,7 @@ public class ListaEnlazada<T extends Comparable<T>> {
         this.first = first;
     }
 
-    // Constructor
-    public ListaEnlazada() {
-        this.first = null; // Inicializamos la lista como vacía
-    }
-
-    // Verifica si la lista está vacía
+    // Verifica si la lista está vacía *
     public boolean isEmptyList() {
         return first == null; // Retorna true si no hay nodos
     }
@@ -32,7 +32,7 @@ public class ListaEnlazada<T extends Comparable<T>> {
         return contador; // Retornamos la cantidad de nodos
     }
 
-    // Elimina todos los nodos de la lista
+    // Elimina todos los nodos de la lista*
     public void destroyList() {
         first = null; // Simplemente rompemos la referencia al primer nodo
     }
@@ -51,7 +51,7 @@ public class ListaEnlazada<T extends Comparable<T>> {
         return -1; // Si no encontramos, retornamos -1
     }
 
-    // Inserta un nuevo elemento al inicio de la lista
+    // Inserta un nuevo elemento al inicio de la lista*
     public void insertFirst(T x) {
         Nodo<T> nodoNuevo = new Nodo<>(x); // Creamos el nuevo nodo
         nodoNuevo.next = first; // El nuevo nodo apunta al primer nodo actual

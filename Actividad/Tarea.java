@@ -26,16 +26,21 @@ public class Tarea implements Comparable<Tarea> {
 
     // Compara si dos tareas son iguales
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true; // Si es el mismo objeto, son iguales
-        if (obj == null || getClass() != obj.getClass()) return false; // Si es null o diferente clase, no son iguales
-        Tarea tarea = (Tarea) obj; // Convertimos el objeto a tipo Tarea
-        return prioridad == tarea.prioridad && titulo.equals(tarea.titulo); // Comparamos prioridad y título
+    public boolean equals(Object obj) { // Object, el tipo más general en Java.
+        if (this == obj) return true; // this es el objeto actual y obj es el objeto con el que compararemos
+        // Si es null o si son de diferente clase, retornamos null
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Tarea tarea = (Tarea) obj; // casteo - convertimos el obj a tipo Tarea
+        // aqui comparamos dos atributos del objeto actual (this) con los atributos del objeto tarea
+        return prioridad == tarea.prioridad && titulo.equals(tarea.titulo);
     }
 
     // Compara dos tareas por prioridad para ordenar
     @Override
+    //un parámetro tipo Tarea llamado otra que es el objeto con el que se va a comparar el objeto actual (this).
+    //devolvera un entero: negativo si this es menor, 0 si son iguales, positivo si this es mayor
     public int compareTo(Tarea otra) {
+        //devolvera un entero
         return Integer.compare(this.prioridad, otra.prioridad); // Comparamos prioridades (de menor a mayor)
     }
 }

@@ -73,29 +73,29 @@ public class ListaEnlazada<T extends Comparable<T>> {
         }
     }
 
-    // Elimina el primer nodo que contenga el dato x
+    // Elimina el primer nodo que contenga el dato x 
     public void removeNodo(T x) {
         if (first == null) { // Si la lista está vacía
             return; // No hay nada que eliminar
-        }
+            }
 
         if (first.data.equals(x)) { // Si el primer nodo contiene el dato
             first = first.next; // Eliminamos el primer nodo
             return;
         }
 
-        Nodo<T> nodoCurrent = first; // Empezamos desde el primer nodo
-        Nodo<T> nodoSiguiente = first.next; // Nodo siguiente al primero
+        Nodo<T> nodoPrevio = first; // Empezamos desde el primer nodo
+        Nodo<T> nodoCurrent = first.next; // Nodo siguiente al primero
 
-        while (nodoSiguiente != null) { // Mientras haya nodos
-            if (nodoSiguiente.data.equals(x)) { // Si encontramos el dato
-                nodoCurrent.next = nodoSiguiente.next; // Saltamos el nodo a eliminar
+        while (nodoCurrent != null) { // Mientras haya nodos
+            if (nodoCurrent.data.equals(x)) { // Si encontramos el dato
+                nodoPrevio.next = nodoCurrent.next; // Saltamos el nodo a eliminar
                 return;
             }
-            nodoCurrent = nodoSiguiente; // Avanzamos el actual
-            nodoSiguiente = nodoSiguiente.next; // Avanzamos el siguiente
+            nodoPrevio = nodoCurrent; // Avanzamos el previo
+            nodoCurrent = nodoCurrent.next; // Avanzamos el actual
         }
-    }
+    }    
 
     // Recorre y muestra todos los datos de la lista
     public void recorrer() {

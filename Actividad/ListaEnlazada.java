@@ -108,16 +108,40 @@ public class ListaEnlazada<T extends Comparable<T>> {
 
     public void invertir() {
         ListaEnlazada<T> listaTemporal = new ListaEnlazada<>(); // Creamos una lista nueva
-        Nodo<T> actual = first; // Empezamos desde el primer nodo de la lista original
+        Nodo<T> nodoCurrent = first; // Empezamos desde el primer nodo de la lista original
     
-        while (actual != null) {
-            Nodo<T> nuevoNodo = new Nodo<>(actual.data); // Creamos un nuevo nodo con el mismo dato
+        while (nodoCurrent != null) {
+            Nodo<T> nuevoNodo = new Nodo<>(nodoCurrent.data); // Creamos un nuevo nodo con el mismo dato
             nuevoNodo.next = listaTemporal.first; // Apuntamos el nuevo nodo al primero de la nueva lista
             listaTemporal.first = nuevoNodo; // Ahora este nuevo nodo es el primero de la lista temporal
-            actual = actual.next; // Avanzamos en la lista original
+            nodoCurrent = nodoCurrent.next; // Avanzamos en la lista original
         }
     
         first = listaTemporal.first; // Reemplazamos la lista original con la invertida
     }
     
+    public void ordenar() { //Ordenamiento con Bubble Sort 
+        if (first == null || first.next == null) {
+            return; // La lista ya está ordenada si está vacía o tiene un solo nodo
+        }
+    
+        boolean swapp; //Indica si hubo intercambios en una pasada
+    
+        do {
+            swapp = false;
+            Nodo<T> nodoCurrent = first; // Empezamos desde el primer nodo
+    
+            while (nodoCurrent.next != null) { // Mientras haya un siguiente nodo
+                if (nodoCurrent.data.compareTo(nodoCurrent.next.data) > 0) {
+                    // Intercambiamos los datos de los nodos si están en el orden incorrecto
+                    T temp = nodoCurrent.data;
+                    nodoCurrent.data = nodoCurrent.next.data;
+                    nodoCurrent.next.data = temp;
+    
+                    swapp = true; // Se hizo un intercambio
+                }
+                nodoCurrent = nodoCurrent.next; // Avanzamos al siguiente nodo
+            }
+        } while (swapp); // Repetimos mientras haya intercambios
+    }
 }

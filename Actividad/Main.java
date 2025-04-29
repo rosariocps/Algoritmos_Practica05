@@ -9,7 +9,7 @@ public class Main {
         gestor.agregarTarea(new Tarea("Limpiar mi habitación", 3));
         gestor.agregarTarea(new Tarea("Ordenar la ropa en el armario", 2));
         gestor.agregarTarea(new Tarea("Cocinar el almuerzo", 4));
-        gestor.agregarTarea(new Tarea("Lavar los platos", 3));
+        gestor.agregarTarea(new Tarea("Lavar los platos", 1));
         gestor.agregarTarea(new Tarea("Sacar la basura", 5));
         gestor.agregarTarea(new Tarea("Barrer y trapear el piso", 4));
 

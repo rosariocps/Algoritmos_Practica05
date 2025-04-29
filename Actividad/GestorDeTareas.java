@@ -34,6 +34,16 @@ public class GestorDeTareas<T extends Comparable<T>> {
         return tareas.length(); // Devolvemos la cantidad de tareas
     }
 
+    // Ordena las tareas de la lista
+    public void ordenarTareas() {
+        tareas.ordenar(); // Llamamos al método ordenar() de la lista enlazada
+    }
+
+    // Invierte la lista de tareas
+    public void invertirTareas() {
+        tareas.invertir(); // Solo llamamos al método de la lista
+    }    
+
     // Devuelve la tarea con mayor prioridad (solo si T es de tipo Tarea)
     public T obtenerTareaMasPrioritaria() {
         if (tareas.isEmptyList()) {
@@ -43,6 +53,11 @@ public class GestorDeTareas<T extends Comparable<T>> {
         Nodo<T> nodoCurrent = tareas.getFirst(); // Accedemos al primer nodo
         T tareaMasPrioritaria = nodoCurrent.data; // Asumimos que el primero es el mayor
         nodoCurrent = nodoCurrent.next; // Avanzamos al segundo nodo
+
+        if (!(tareaMasPrioritaria instanceof Tarea)) {
+            System.out.println("Advertencia: La lista no contiene objetos de tipo Tarea.");
+            return null;
+        }
 
         while (nodoCurrent != null) { // Mientras queden nodos
             T tareaActual = nodoCurrent.data; // Tomamos el dato del nodo actual
@@ -58,10 +73,5 @@ public class GestorDeTareas<T extends Comparable<T>> {
         }
 
         return tareaMasPrioritaria; // Devolvemos la tarea con mayor prioridad
-    }
-   
-    // Invierte la lista de tareas
-    public void invertirTareas() {
-        tareas.invertir(); // Solo llamamos al método de la lista
     }
 }

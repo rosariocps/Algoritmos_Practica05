@@ -62,17 +62,6 @@ public class GestorDeTareas<T extends Comparable<T>> {
    
     // Invierte la lista de tareas
     public void invertirTareas() {
-        Nodo<T> nodoPrevio = null; // No hay nodo anterior al principio
-        Nodo<T> nodoCurrent = tareas.getFirst(); // Empezamos desde el primer nodo
-        Nodo<T> nodoSiguiente; // Variable para guardar el siguiente nodo
-   
-        while (nodoCurrent != null) {
-            nodoSiguiente = nodoCurrent.next; // Guardamos el siguiente nodo
-            nodoCurrent.next = nodoPrevio; // Invertimos el enlace
-            nodoPrevio = nodoCurrent; // Movemos el previo hacia adelante
-            nodoCurrent = nodoSiguiente; // Movemos el current al siguiente
-        }
-   
-        tareas.setFirst(nodoPrevio); // El último nodo recorrido se vuelve el nuevo primero
+        tareas.invertir(); // Solo llamamos al método de la lista
     }
 }

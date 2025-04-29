@@ -105,4 +105,19 @@ public class ListaEnlazada<T extends Comparable<T>> {
             nodoCurrent = nodoCurrent.next; // Avanzamos al siguiente nodo
         }
     }
+
+    public void invertir() {
+        ListaEnlazada<T> listaTemporal = new ListaEnlazada<>(); // Creamos una lista nueva
+        Nodo<T> actual = first; // Empezamos desde el primer nodo de la lista original
+    
+        while (actual != null) {
+            Nodo<T> nuevoNodo = new Nodo<>(actual.data); // Creamos un nuevo nodo con el mismo dato
+            nuevoNodo.next = listaTemporal.first; // Apuntamos el nuevo nodo al primero de la nueva lista
+            listaTemporal.first = nuevoNodo; // Ahora este nuevo nodo es el primero de la lista temporal
+            actual = actual.next; // Avanzamos en la lista original
+        }
+    
+        first = listaTemporal.first; // Reemplazamos la lista original con la invertida
+    }
+    
 }

@@ -1,17 +1,14 @@
 public class GestorDeTareas<T extends Comparable<T>> {
     private ListaEnlazada<T> tareas; // Lista enlazada para almacenar las tareas
 
-
     public GestorDeTareas() {
         this.tareas = new ListaEnlazada<>(); // Inicializamos la lista
     }
-
 
     // Agrega una tarea al final de la lista
     public void agregarTarea(T tarea) {
         tareas.insertLast(tarea); // Insertamos la tarea al final
     }
-
 
     // Elimina una tarea si existe en la lista
     public boolean eliminarTarea(T tarea) {
@@ -22,24 +19,20 @@ public class GestorDeTareas<T extends Comparable<T>> {
         return false; // Indicamos que no se encontró la tarea
     }
 
-
     // Busca si una tarea existe en la lista
     public boolean contieneTarea(T tarea) {
         return tareas.search(tarea) != -1; // Retorna true si la tarea existe
     }
-
 
     // Imprime todas las tareas
     public void imprimirTareas() {
         tareas.recorrer(); // Recorremos e imprimimos cada tarea
     }
 
-
     // Cuenta el total de tareas
     public int contarTareas() {
         return tareas.length(); // Devolvemos la cantidad de tareas
     }
-
 
     // Devuelve la tarea con mayor prioridad (solo si T es de tipo Tarea)
     public T obtenerTareaMasPrioritaria() {
@@ -47,11 +40,9 @@ public class GestorDeTareas<T extends Comparable<T>> {
             return null; // Si la lista está vacía, no hay tarea prioritaria
         }
 
-
         Nodo<T> nodoCurrent = tareas.getFirst(); // Accedemos al primer nodo
         T tareaMasPrioritaria = nodoCurrent.data; // Asumimos que el primero es el mayor
         nodoCurrent = nodoCurrent.next; // Avanzamos al segundo nodo
-
 
         while (nodoCurrent != null) { // Mientras queden nodos
             T tareaActual = nodoCurrent.data; // Tomamos el dato del nodo actual
@@ -59,14 +50,12 @@ public class GestorDeTareas<T extends Comparable<T>> {
                 Tarea tareaC = (Tarea) tareaActual; // Convertimos para comparar prioridades
                 Tarea tareaMax = (Tarea) tareaMasPrioritaria; // Convertimos la actual tarea máxima
 
-
                 if (tareaC.getPrioridad() > tareaMax.getPrioridad()) {
                     tareaMasPrioritaria = tareaActual; // Actualizamos la tarea más prioritaria
                 }
             }
             nodoCurrent = nodoCurrent.next; // Avanzamos al siguiente nodo
         }
-
 
         return tareaMasPrioritaria; // Devolvemos la tarea con mayor prioridad
     }

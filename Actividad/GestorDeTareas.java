@@ -46,9 +46,9 @@ public class GestorDeTareas<T extends Comparable<T>> {
 
         while (nodoCurrent != null) { // Mientras queden nodos
             T tareaActual = nodoCurrent.data; // Tomamos el dato del nodo actual
-            if (tareaActual instanceof Tarea) { // Verificamos que sea una tarea
-                Tarea tareaC = (Tarea) tareaActual; // Convertimos para comparar prioridades
-                Tarea tareaMax = (Tarea) tareaMasPrioritaria; // Convertimos la actual tarea máxima
+            if (tareaActual instanceof Tarea) { // Verificamos que sea un objeto de la clase Tarea
+                Tarea tareaC = (Tarea) tareaActual; // hacemos un Cast para que los objetos de tipo T se vuelvan tipo Tarea
+                Tarea tareaMax = (Tarea) tareaMasPrioritaria; // hacemos un Cast para que los objetos de tipo T se vuelvan tipo Tarea
 
                 if (tareaC.getPrioridad() > tareaMax.getPrioridad()) {
                     tareaMasPrioritaria = tareaActual; // Actualizamos la tarea más prioritaria

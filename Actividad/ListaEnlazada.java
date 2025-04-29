@@ -105,29 +105,4 @@ public class ListaEnlazada<T extends Comparable<T>> {
             nodoCurrent = nodoCurrent.next; // Avanzamos al siguiente nodo
         }
     }
-
-    // Ordena los elementos de la lista usando Bubble Sort
-    public void ordenar() {
-        if (first == null || first.next == null) { // Si hay 0 o 1 elementos
-            return; // Ya está ordenado
-        }
-
-        boolean swapped; // Variable para saber si hubo intercambio
-
-        do {
-            swapped = false; // Reiniciamos swapped al empezar cada pasada
-            Nodo<T> nodoCurrent = first; // Empezamos desde el primer nodo
-
-            while (nodoCurrent.next != null) { // Mientras haya un siguiente nodo
-                if (nodoCurrent.data.compareTo(nodoCurrent.next.data) > 0) { // Si el actual es mayor que el siguiente
-                    T temp = nodoCurrent.data; // Guardamos temporalmente el dato actual
-                    nodoCurrent.data = nodoCurrent.next.data; // Intercambiamos los datos
-                    nodoCurrent.next.data = temp;
-                    swapped = true; // Hubo un intercambio
-                }
-                nodoCurrent = nodoCurrent.next; // Avanzamos al siguiente nodo
-            }
-
-        } while (swapped); // Seguimos mientras haya intercambios
-    }
 }

@@ -48,7 +48,7 @@ public class ListaEnlazadaInvertir<T> { // creamos una clase generica para manej
     // funcion para invertir la lista y devolverla en orden inverso
     public static <T> ListaEnlazadaInvertir<T> invertirLista(Node<T> cabeza) {
         ListaEnlazadaInvertir<T> listaInvertida = new ListaEnlazadaInvertir<>(); // creamos una nueva lista vacía
-        Nrrode<T> actual = cabeza; // comenzamos a recorrer la lista original desde la cabeza
+        Node<T> actual = cabeza; // comenzamos a recorrer la lista original desde la cabeza
         while (actual != null) { // mientras haya nodos en la lista original
             Node<T> nuevoNodo = new Node<>(actual.data); // creamos un nuevo nodo con el dato del nodo actual
             nuevoNodo.next = listaInvertida.head; // el siguiente nodo del nuevo nodo será la cabeza de la lista invertida

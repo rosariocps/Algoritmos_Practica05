@@ -54,20 +54,11 @@ public class GestorDeTareas<T extends Comparable<T>> {
         T tareaMasPrioritaria = nodoCurrent.data; // Asumimos que el primero es el mayor
         nodoCurrent = nodoCurrent.next; // Avanzamos al segundo nodo
 
-        if (!(tareaMasPrioritaria instanceof Tarea)) {
-            System.out.println("Advertencia: La lista no contiene objetos de tipo Tarea.");
-            return null;
-        }
-
         while (nodoCurrent != null) { // Mientras queden nodos
             T tareaActual = nodoCurrent.data; // Tomamos el dato del nodo actual
-            if (tareaActual instanceof Tarea) { // Verificamos que sea un objeto de la clase Tarea
-                Tarea tareaC = (Tarea) tareaActual; // hacemos un Cast para que los objetos de tipo T se vuelvan tipo Tarea
-                Tarea tareaMax = (Tarea) tareaMasPrioritaria; // hacemos un Cast para que los objetos de tipo T se vuelvan tipo Tarea
-
-                if (tareaC.getPrioridad() > tareaMax.getPrioridad()) {
-                    tareaMasPrioritaria = tareaActual; // Actualizamos la tarea más prioritaria
-                }
+            // Si tareaActual tiene mayor prioridad que la actual mejor, la actualizamos
+            if (tareaActual.compareTo(tareaMasPrioritaria) > 0) {
+                tareaMasPrioritaria = tareaActual;
             }
             nodoCurrent = nodoCurrent.next; // Avanzamos al siguiente nodo
         }

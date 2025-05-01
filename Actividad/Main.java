@@ -10,8 +10,8 @@ public class Main {
         gestor.agregarTarea(new Tarea("Ordenar la ropa en el armario", 2));
         gestor.agregarTarea(new Tarea("Cocinar el almuerzo", 4));
         gestor.agregarTarea(new Tarea("Lavar los platos", 1));
-        gestor.agregarTarea(new Tarea("Sacar la basura", 5));
-        gestor.agregarTarea(new Tarea("Barrer y trapear el piso", 4));
+        gestor.agregarTarea(new Tarea("Sacar la basura", 4));
+        gestor.agregarTarea(new Tarea("Barrer y trapear el piso", 6));
 
         // Imprimir todas las tareas actuales
         System.out.println("Tareas actuales:");
